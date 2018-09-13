@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+
+import { AccountService } from '../../core/account.service';
 
 @Component({
   selector: 'app-account-setup',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountSetupComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private accountService: AccountService
+  ) { }
 
   ngOnInit() {
+  }
+
+  complete() {
+    this.accountService.toggleComplete();
+    this.router.navigate(['accountsummary']);
   }
 
 }
