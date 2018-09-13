@@ -1,2 +1,13 @@
 <h1>Account Setup</h1>
 <button role="button" class="btn btn-success" (click)="complete()">Complete Setup</button>
+<br><br>
+<ol>
+  <li>Navigation is hidden until account is complete</li>
+  <li>
+    Routing is guarded by router guard
+    <ul>
+      <li>You can manually type in other routes (#/accountedit & #/accountsummary)</li>
+      <li>You will be redirected to account setup until you click the button</li>
+    </ul>
+  </li>
+</ol>
