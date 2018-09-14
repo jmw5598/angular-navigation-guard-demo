@@ -10,20 +10,19 @@ export class AccountSetupCompleteGuard implements CanActivate {
   private user;
 
   constructor(
-    private router: Router,
-    private accountService: AccountService
-  ) {
+    private router: Router, private accountService: AccountService) {
     this.accountService.user.subscribe(
       user => this.user = user
     );
   }
 
   canActivate(
-    next: ActivatedRouteSnapshot,
+    route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-    if(this.user && this.user.account.isComplete)
+    if(this.user && this.user.account.isComplete) {
       return true;
+    }
 
     this.router.navigate(['accountsetup']);
     return false;
